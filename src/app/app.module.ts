@@ -13,6 +13,8 @@ import { appReducer } from './core/app.reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { FormsModule } from '@angular/forms';
+import { RouterEffects } from './core/router.effects';
+import { SaladModule } from './salad/salad.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,11 +22,12 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    SaladModule,
     StoreModule.forRoot(
       { app: appReducer, router: routerReducer },
       {}
     ),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([RouterEffects]),
     StoreRouterConnectingModule.forRoot(),
     StoreDevtoolsModule.instrument({
       maxAge: 25,

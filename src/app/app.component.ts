@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { SetUsername } from './core/app.actions';
 import { AppState } from './core/app.reducers';
+import { Navigate } from './core/router.actions';
 
 @Component({
   selector: 'app-root',
@@ -19,5 +20,6 @@ export class AppComponent {
 
   setUsername(username: string) {
     this.store.dispatch(SetUsername({ username }));
+    this.store.dispatch(Navigate({ path: 'salad/order' }));
   }
 }

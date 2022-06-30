@@ -5,7 +5,6 @@ export interface AppState {
     username: string;
     orderId: number;
     orderStatus?: 'pending' | 'success' | 'failed';
-    salad?: any;
 }
 
 export const initialState: AppState = { 
