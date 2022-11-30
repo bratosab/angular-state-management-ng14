@@ -1,1 +1,19 @@
-<p>salad-page works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <app-topping-list></app-topping-list>
+            <button class="btn btn-outline-warning" (click)="resetOrder()">Reset your order</button>
+        </div>
+        <div class="col-6">
+            <img src="./assets/salad.jpg" alt="Salad de ouf" style="width:250px;">
+            <h3><span class="badge badge-success">{{ price$ | async | currency }}</span></h3>
+            <h4>Dressing : {{ dressing$ | async }}</h4>
+
+            <ul>
+                <li *ngFor="let topping of toppings$ | async">
+                    <span class="badge badge-success">{{ topping.name }} ( {{ topping.price | currency}} )</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

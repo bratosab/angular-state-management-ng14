@@ -1,1 +1,13 @@
-<p>topping-list works!</p>
+<ng-container *ngIf="toppings$ | async as selected">
+  <ng-container *ngIf="choices$ | async as choices">
+    <div *ngFor="let choice of choices">
+      <button
+        class="btn btn-outline-info"
+        (click)="add(choice)"
+      >
+        Add {{ choice.name }} (
+        {{ choice.price | currency }} )
+      </button>
+    </div>
+  </ng-container>
+</ng-container>
