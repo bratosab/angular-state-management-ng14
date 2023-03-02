@@ -27,7 +27,9 @@ export const saladReducer = createReducer(
     toppings: [...state.toppings, action],
     price: state.price + action.price,
   })),
-  on(Reset, state => ({ ...initialState })),
+  on(Reset, state => {
+    return { ...initialState, choices: [...state.choices] }
+  }),
   on(AddChoices, (state, action) => ({
     ...state,
     choices: [...state.choices, ...action.list],
